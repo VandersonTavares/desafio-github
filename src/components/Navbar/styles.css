@@ -1,0 +1,15 @@
+.nav-title{
+    color: white;
+    font-weight: 500;
+    line-height: 32px;
+    display: flex;
+    align-items: center; 
+    padding-left: 15px;
+}
+.nav-title a{
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+
+
