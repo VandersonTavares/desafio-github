@@ -41,7 +41,7 @@ const Perfil = () => {
       </div>
       <div className="perfil-container">
         {visible && (
-          <div>
+          <div className="info-perfil">
             <div className="pic">
               <img src={data.avatar_url} alt="perfil-pic" />
             </div>

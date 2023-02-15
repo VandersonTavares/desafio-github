@@ -80,5 +80,20 @@
 .pic img{
     width: 247px;
     height: 247px;
-    
+}
+
+@media(min-width:768px){
+    .perfil-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .info-perfil{
+        display: flex;
+        align-items: center;
+    }
+    .info-perfil .infos{
+        width: 60vw;
+        margin: 10px;
+    }
 }
