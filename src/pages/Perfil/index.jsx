@@ -10,19 +10,22 @@ const Perfil = () => {
 
   const handleText = (e) => {
     setPerfil(e.target.value);
-    console.log(perfil);
+    console.log(e.target.value);
   };
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.preventDefault();
     axios
-      .get("https://api.github.com/users/VandersonTavares")
+      .get(`https://api.github.com/users/${perfil}`)
       .then((response) => {
         console.log(response.data);
         setData(response.data);
-        setVisible(true)
+        setVisible(true);
       })
       .catch((e) => {
         console.log(e.message);
+        alert('Usuário não encontrado');
+        setVisible(false);
       });
   };
 
@@ -30,22 +33,16 @@ const Perfil = () => {
     <div className="perfil-content">
       <div className="content">
         <h2>Encontre um perfil Github</h2>
-        <input
-          type="text"
-          placeholder="Usuário Github"
-          value={perfil}
-          onChange={handleText}
-        />
-        <br />
-        <button className="btn btn-primary" onClick={handleClick}>
-          Encontrar
-        </button>
+        <form onSubmit={handleClick}>
+          <input type="text" placeholder="Usuário Github" onChange={handleText}/>
+          <br />
+          <button type="submit" className="btn btn-primary">Buscar</button>
+        </form>
       </div>
-
       <div className="perfil-container">
         {visible && (
           <div>
-            <div className="img-pic">
+            <div className="pic">
               <img src={data.avatar_url} alt="perfil-pic" />
             </div>
             <div className="infos">
